@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "headline": "T2 automatic Top-1 541/820 = 65.98%",
+  "c3_baseline": "481/820 = 58.66%",
+  "a4_candidate_material_ceiling_not_accuracy": "583/820 = 71.10%",
+  "checks_passed": 164,
+  "checks_total": 164,
+  "failures": []
+}

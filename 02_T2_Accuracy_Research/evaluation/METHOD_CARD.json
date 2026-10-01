@@ -1,0 +1,12 @@
+{
+  "schema": "REAL822V3_C3_O2_A4_T2_65PCT_REPRO_V1",
+  "headline": "65% accuracy based",
+  "headline_metric": "T2 leakage-free 5-fold OOF automatic Top-1",
+  "t2": {"correct": 541, "denominator": 820, "percent": 65.98},
+  "c3": {"correct": 481, "denominator": 820, "percent": 58.66},
+  "a4_candidate_material_ceiling": {"correct": 583, "denominator": 820, "percent": 71.10, "automatic_accuracy": false},
+  "paired_t2_vs_c3": {"wrong_to_correct": 81, "correct_to_wrong": 21, "net": 60},
+  "pipeline": ["gpu_pipeline.py", "Real822v3", "C3", "O2", "A4", "T2"],
+  "claim_boundary": "Frozen Real822v3 820-group experiment reproduction; no arbitrary-video transfer claim"
+}
+

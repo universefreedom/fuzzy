@@ -1,0 +1,31 @@
+{
+  "schema": "PORTFOLIO_REPO_CHECK_V1",
+  "status": "PASS_WITH_EXTERNAL_DEPENDENCIES",
+  "checks": {
+    "main_gpu_pipeline_pair_preserved": "PASS",
+    "t2_lineage_separated": "PASS",
+    "csharp_source_verified_against_ppt": "PASS",
+    "no_invented_project_claims": "PASS",
+    "no_secrets_private_paths": "PASS",
+    "build_artifacts_excluded": "PASS",
+    "readme_complete": "PASS",
+    "executable_structure_preserved": "PASS_WITH_EXTERNAL_DEPENDENCIES"
+  },
+  "source_parity": {
+    "gpu_pipeline.py": "209D38BD5D759DED844D4BF64E3F01DD1F402894ED0EE017172A27E3A9537694",
+    "gpu_pipeline2.py": "98E5F5A57244D543D1F96AF0E5790275EBD2BF7053CC40FA85C3C900250F3139",
+    "run_detection.py": "E83AD6A7F7A34E4EFDBB20691E228861BA8E000FAEEE756D06C3AA68EA22B0C6",
+    "da/Form1.cs": "3288806B7D4EC3779C1E5A2420C6C883A9913630BA432271818A57976EBEF626",
+    "ho_pi/Form1.cs": "8CAA17B9E0E66B2343CAC5A57E0F46C7D9DCC28B46CD63986172ABB2244564EF"
+  },
+  "tests": {
+    "python_py_compile": "PASS",
+    "da_solution_build": "PASS_WITH_1_UNUSED_FIELD_WARNING",
+    "ho_pi_solution_build": "PASS",
+    "end_to_end_cctv": "NOT_RUN_EXTERNAL_MODELS_AND_VIDEO_REQUIRED"
+  },
+  "verified_t2_metric": "541/820 = 65.98%",
+  "production_mutation": 0,
+  "paid_resources": 0
+}
+

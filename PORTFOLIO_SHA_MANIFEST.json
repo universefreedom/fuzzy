@@ -1,0 +1,216 @@
+{
+  "schema": "PORTFOLIO_SHA_MANIFEST_V1",
+  "file_count": 42,
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 374,
+      "sha256": "658A73585610973B3FC7FEC94D9F88539EA4CD1721873C39C644B119DFBFD88C"
+    },
+    {
+      "path": "PORTFOLIO_AUDIT.md",
+      "bytes": 4417,
+      "sha256": "31B2E483E471A84420CBA1C585FFC98B5E57ACB876F89998385B4F467DE0CFF2"
+    },
+    {
+      "path": "PORTFOLIO_REPO_CHECK.json",
+      "bytes": 1256,
+      "sha256": "CA8BCC30764A9778A3C3740D8C44B2B922F09F80F53BC7EB6FA0097FDDF9D069"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2334,
+      "sha256": "6D8E50AA6664C987E93C575A7DFA821025375012641DF9963CC1718195125807"
+    },
+    {
+      "path": "01_CCTV_LPR_System/gpu_pipeline.py",
+      "bytes": 777945,
+      "sha256": "209D38BD5D759DED844D4BF64E3F01DD1F402894ED0EE017172A27E3A9537694"
+    },
+    {
+      "path": "01_CCTV_LPR_System/gpu_pipeline2.py",
+      "bytes": 25664,
+      "sha256": "98E5F5A57244D543D1F96AF0E5790275EBD2BF7053CC40FA85C3C900250F3139"
+    },
+    {
+      "path": "01_CCTV_LPR_System/README.md",
+      "bytes": 2014,
+      "sha256": "BC8557C388954BA836EC3320E383D84329E9DDF587954034CB9C6D35810FF436"
+    },
+    {
+      "path": "01_CCTV_LPR_System/requirements.txt",
+      "bytes": 73,
+      "sha256": "76F670E6E0086B4B4D1B61AE4F6068746796B26FD0373D59655CF6823DC30300"
+    },
+    {
+      "path": "01_CCTV_LPR_System/run_detection.py",
+      "bytes": 137831,
+      "sha256": "E83AD6A7F7A34E4EFDBB20691E228861BA8E000FAEEE756D06C3AA68EA22B0C6"
+    },
+    {
+      "path": "02_T2_Accuracy_Research/build_c3_a4_selector_features.py",
+      "bytes": 12607,
+      "sha256": "5ECCDF9BB17B567D8DA111CFE3A18883C5F6B88A18F2243AC77C1919443BFC41"
+    },
+    {
+      "path": "02_T2_Accuracy_Research/README.md",
+      "bytes": 1605,
+      "sha256": "1B5F4D9C9345FD86AA98066A7C059D623744F680772818B1DBFEAA779D88A478"
+    },
+    {
+      "path": "02_T2_Accuracy_Research/run_c3_a4_selector_crossfit_pre_gt.py",
+      "bytes": 6867,
+      "sha256": "1AC9D7C392F5BAF282C3B51852D47732CFDCF046DEA7E9D24600CF1BA9343947"
+    },
+    {
+      "path": "02_T2_Accuracy_Research/run_real822_cross_group_confusion_transfer_v1.py",
+      "bytes": 24485,
+      "sha256": "DC654E41D059FE56C11BE05BDB7270613770C418F4794ECDC8B87661CA01DAC4"
+    },
+    {
+      "path": "02_T2_Accuracy_Research/run_real822v3_c3_a4_crossfit_selector_v1.py",
+      "bytes": 15338,
+      "sha256": "44ACEFFD0EADC34BA58E6B06338F3E3123C75F47811A1AC78C1F24C2F3584251"
+    },
+    {
+      "path": "02_T2_Accuracy_Research/score_real822v3_c3_a4_selector_postfreeze.py",
+      "bytes": 15761,
+      "sha256": "580A68F5C55582F95D3266DFDF37000923D1256CB078179D9BB0A0C79FC042A2"
+    },
+    {
+      "path": "02_T2_Accuracy_Research/evaluation/METHOD_CARD.json",
+      "bytes": 670,
+      "sha256": "9287481E69A1AF1FB668D72F29F2C018DE8AC5CDE31063F5764E1F6589CD7ACE"
+    },
+    {
+      "path": "02_T2_Accuracy_Research/evaluation/REPRO_RESULT.json",
+      "bytes": 255,
+      "sha256": "57720A8D225D2DDD758B986A122ADF6F90F1DFC4AB45351395627526FB7D74E9"
+    },
+    {
+      "path": "03_CSharp_ImageProcessing/README.md",
+      "bytes": 1480,
+      "sha256": "EEF4205467936A94FCF1F0E273B3A85AFEB36D197A8CC3EB487829D63D414112"
+    },
+    {
+      "path": "03_CSharp_ImageProcessing/da/da.sln",
+      "bytes": 1119,
+      "sha256": "A834FF433F584FD96E37C4DC03B080A0DAED7B3D690D7E1B8A684AE88504FB4D"
+    },
+    {
+      "path": "03_CSharp_ImageProcessing/da/da/App.config",
+      "bytes": 189,
+      "sha256": "47E5A0F101AF4151D7F13D2D6BFA9B847D5B5E4A98D1F4674B7C015772746CDF"
+    },
+    {
+      "path": "03_CSharp_ImageProcessing/da/da/da.csproj",
+      "bytes": 3589,
+      "sha256": "047F6D04D45EFBEC287BEB59999A0B71014A9E142D5BCF13CB86E369FE45464A"
+    },
+    {
+      "path": "03_CSharp_ImageProcessing/da/da/Form1.cs",
+      "bytes": 17658,
+      "sha256": "3288806B7D4EC3779C1E5A2420C6C883A9913630BA432271818A57976EBEF626"
+    },
+    {
+      "path": "03_CSharp_ImageProcessing/da/da/Form1.Designer.cs",
+      "bytes": 10608,
+      "sha256": "46FBF8419E97D2FF36533D6A90FA87116084C114B73E15CE4C622E0F931EFA59"
+    },
+    {
+      "path": "03_CSharp_ImageProcessing/da/da/Form1.resx",
+      "bytes": 6423,
+      "sha256": "DD883F241E3DD3BBE1F9A6C9374E2B0829B910C047A0844E0C583D5D8B9B2A99"
+    },
+    {
+      "path": "03_CSharp_ImageProcessing/da/da/Program.cs",
+      "bytes": 545,
+      "sha256": "A4BA063F303795D8CF553F70525E2B64C33A5003CA2E8A56B0A74BD9B652A10B"
+    },
+    {
+      "path": "03_CSharp_ImageProcessing/da/da/Properties/AssemblyInfo.cs",
+      "bytes": 1314,
+      "sha256": "331EBA29654C751AE63412448933EFF8744A09BEE9A2D0198AD6AD4FEE568B72"
+    },
+    {
+      "path": "03_CSharp_ImageProcessing/da/da/Properties/Resources.Designer.cs",
+      "bytes": 3107,
+      "sha256": "95D116A5BD2E066E056D1FFECECC3C792B8EE13C0921AD5D77E3EF918F710D40"
+    },
+    {
+      "path": "03_CSharp_ImageProcessing/da/da/Properties/Resources.resx",
+      "bytes": 5612,
+      "sha256": "66B5EBD1B0FC73F041BA669CE2184F6F471D5E3524EFA34CA31233E9F5395262"
+    },
+    {
+      "path": "03_CSharp_ImageProcessing/da/da/Properties/Settings.Designer.cs",
+      "bytes": 1089,
+      "sha256": "9C0730CB4E009137AE23756BAB095EDCF52A807932EBDBC6F27A9BB33D63D4D5"
+    },
+    {
+      "path": "03_CSharp_ImageProcessing/da/da/Properties/Settings.settings",
+      "bytes": 249,
+      "sha256": "F6A4290723520CADDD934B8800319C7CA6CC7EEAB647059EC89B7A13B1513265"
+    },
+    {
+      "path": "03_CSharp_ImageProcessing/ho_pi/ho_pi.sln",
+      "bytes": 1128,
+      "sha256": "AD4EDEEE8C77995D6249FD225E25422B9704A57E6321239A444F52C2F39C82AA"
+    },
+    {
+      "path": "03_CSharp_ImageProcessing/ho_pi/ho_pi/App.config",
+      "bytes": 189,
+      "sha256": "47E5A0F101AF4151D7F13D2D6BFA9B847D5B5E4A98D1F4674B7C015772746CDF"
+    },
+    {
+      "path": "03_CSharp_ImageProcessing/ho_pi/ho_pi/Form1.cs",
+      "bytes": 21261,
+      "sha256": "8CAA17B9E0E66B2343CAC5A57E0F46C7D9DCC28B46CD63986172ABB2244564EF"
+    },
+    {
+      "path": "03_CSharp_ImageProcessing/ho_pi/ho_pi/Form1.Designer.cs",
+      "bytes": 7687,
+      "sha256": "2BCAEBA35050B26ACF02DD582A6575E5A68213B941ECC1D997FAEC252F4A4044"
+    },
+    {
+      "path": "03_CSharp_ImageProcessing/ho_pi/ho_pi/Form1.resx",
+      "bytes": 6219,
+      "sha256": "7454E891A3E60998B0544227EEAF49A3171DCE7A34E11E89A2FC9E74935AC14E"
+    },
+    {
+      "path": "03_CSharp_ImageProcessing/ho_pi/ho_pi/ho_pi.csproj",
+      "bytes": 3595,
+      "sha256": "DC0594491975533F7907CFDCCC6B384B04E8889E20F0135944AFAFCE9769316C"
+    },
+    {
+      "path": "03_CSharp_ImageProcessing/ho_pi/ho_pi/Program.cs",
+      "bytes": 548,
+      "sha256": "D171D15278D4B543A2496C650B8879B4F894E7924CCD98076204E4611FB58AFB"
+    },
+    {
+      "path": "03_CSharp_ImageProcessing/ho_pi/ho_pi/Properties/AssemblyInfo.cs",
+      "bytes": 1320,
+      "sha256": "49ABDC92DA1696E79175BBD78E3BC4188463F6448F97118F3D45980B44EF1D0A"
+    },
+    {
+      "path": "03_CSharp_ImageProcessing/ho_pi/ho_pi/Properties/Resources.Designer.cs",
+      "bytes": 3113,
+      "sha256": "E8FF9E80C86D5892249C2EE9EB1C9077E6F653A1733CD757D7EBFB9856FD3F91"
+    },
+    {
+      "path": "03_CSharp_ImageProcessing/ho_pi/ho_pi/Properties/Resources.resx",
+      "bytes": 5612,
+      "sha256": "66B5EBD1B0FC73F041BA669CE2184F6F471D5E3524EFA34CA31233E9F5395262"
+    },
+    {
+      "path": "03_CSharp_ImageProcessing/ho_pi/ho_pi/Properties/Settings.Designer.cs",
+      "bytes": 1092,
+      "sha256": "42FA243DCA279E641C5D4744E369B01B30571FCB8DBE8839741F48D02E12D9E9"
+    },
+    {
+      "path": "03_CSharp_ImageProcessing/ho_pi/ho_pi/Properties/Settings.settings",
+      "bytes": 249,
+      "sha256": "F6A4290723520CADDD934B8800319C7CA6CC7EEAB647059EC89B7A13B1513265"
+    }
+  ]
+}
