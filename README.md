@@ -33,3 +33,14 @@ PPT의 향후 아이디어와 실제 코드 구현을 구분한 감사 결과는
 
 학습 weight, 원본 CCTV 데이터와 개인정보 가능성이 있는 영상은 포함하지 않았습니다. Python 파일은 원본 import 구조를 유지하므로 전체 저장소의 `pipeline/`, `ocr/`, `decision/` 모듈과 외부 model이 필요합니다. C# 프로젝트는 Windows의 .NET Framework 4.7.2 및 WinForms 개발 도구가 필요합니다.
 
+## References, Attribution & Licensing
+
+This portfolio includes project implementation, third-party integrations, and work informed by published techniques. The boundary between confirmed and unconfirmed sources is documented separately:
+
+- [Research References](REFERENCES.md)
+- [Third-Party Software Notices](THIRD_PARTY_NOTICES.md)
+- [Source Provenance](SOURCE_PROVENANCE.md)
+- [Asset Sources](ASSET_SOURCES.md)
+
+Third-party copyrights and licenses remain with their respective owners. This repository has no root license grant at present; see the notices and open review items before reusing its code.
+
