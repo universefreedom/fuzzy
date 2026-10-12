@@ -1,4 +1,4 @@
-# CCTV LPR System
+# CCTV 번호판 인식 시스템
 
 ## 역할과 관계
 
@@ -44,7 +44,7 @@ python run_detection.py --help
 
 실제 실행에는 전체 원본 저장소 모듈, CUDA 환경, detector/OCR weight와 입력 영상이 필요합니다. 이 사본만으로 end-to-end 실행을 보장하지 않습니다.
 
-## Dependencies
+## 실행 의존성
 
 주요 dependency 범주는 `requirements.txt`에 정리했습니다. 실제 버전 pin은 원본 환경 receipt를 따라야 합니다.
 

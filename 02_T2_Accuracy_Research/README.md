@@ -1,10 +1,10 @@
-# T2 Accuracy Research
+# T2 정확도 연구
 
 ## 목적
 
 T2는 메인 CCTV 실행 파이프라인과 분리된 정확도 개선 연구 트랙입니다. 번호판 후보의 특징을 구성하고, group-disjoint cross-fit selector로 parent와 challenger를 비교합니다.
 
-## 포함한 frozen producer code
+## 포함된 frozen producer code
 
 - `build_c3_a4_selector_features.py`: C3/A4 후보의 selector feature 생성
 - `run_c3_a4_selector_crossfit_pre_gt.py`: GT 결합 전 cross-fit prediction 생성
