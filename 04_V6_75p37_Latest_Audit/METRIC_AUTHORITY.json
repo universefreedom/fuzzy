@@ -1,0 +1,11 @@
+{
+  "schema": "PORTFOLIO_V6_REPRODUCIBLE_AUDIT_V1",
+  "snapshot_date": "2026-10-12",
+  "evaluation_scope": "retrospective_gt0_nested_outer5_development",
+  "denominator": 820,
+  "v1_parent": {"correct": 600, "accuracy_percent": 73.17},
+  "v6_reproducible": {"correct": 618, "accuracy_percent": 75.37},
+  "switches": {"total": 65, "wrong_to_correct": 25, "correct_to_wrong": 7, "wrong_to_wrong": 33, "net_gain": 18},
+  "claim_boundary": {"blind": false, "unseen": false, "external_performance": false, "production_accuracy": false, "official_competition_score": false, "real_world_generalization_proven": false},
+  "historical_snapshots": [{"date": "2026-10-08", "correct": 622, "denominator": 820, "accuracy_percent": 75.85, "status": "PARTIAL_REPRODUCTION", "headline": false}]
+}

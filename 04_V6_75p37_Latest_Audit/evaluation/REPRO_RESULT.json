@@ -1,0 +1,14 @@
+{
+  "schema": "V6_618_REPRO_RESULT_V1",
+  "status": "PASS",
+  "denominator": 820,
+  "v1_correct": 600,
+  "v6_correct": 618,
+  "v1_accuracy_percent": 73.17,
+  "v6_accuracy_percent": 75.37,
+  "switch_total": 65,
+  "wrong_to_correct": 25,
+  "correct_to_wrong": 7,
+  "wrong_to_wrong": 33,
+  "net_gain": 18
+}

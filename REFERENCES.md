@@ -15,6 +15,13 @@ This portfolio contains coursework, experimental research, and engineering integ
 |---|---|---|---|---|
 | R3 | Cross-fit, out-of-fold evaluation and candidate re-ranking | Evaluation methodology / project implementation | `02_T2_Accuracy_Research/*.py` | `NEEDS_SOURCE_CONFIRMATION`: no particular paper, author, venue or DOI is named in the included source or project README. |
 
+## Reproducible V6 Audit Snapshot
+
+| ID | Technique visible in the public audit | Usage type | Project location | Bibliographic status |
+|---|---|---|---|---|
+| R6 | Qwen3-VL with fold-local LoRA candidate generation | External model/tool integration; candidate source only | `04_V6_75p37_Latest_Audit/` | Upstream project: [QwenLM/Qwen3-VL](https://github.com/QwenLM/Qwen3-VL). Exact model card and weight license must be checked before obtaining weights. No weights are included. |
+| R7 | Frozen provenance registry, parent-protected Top-5 and freeze-before-GT selector replay | Project evaluation methodology | `04_V6_75p37_Latest_Audit/` | Public material is an audit summary and does not assign an external paper lineage without matching evidence. |
+
 ## C# Image Processing
 
 | ID | Technique visible in this snapshot | Usage type | Project location | Bibliographic status |

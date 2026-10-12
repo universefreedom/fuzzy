@@ -1,46 +1,110 @@
-# Software & Vision Portfolio
+# CCTV LPR Engineering & Research Portfolio
 
-실제 입력 환경에서 동작하는 영상처리 시스템을 구축하고, 측정·로그 분석·회귀 검증을 통해 문제 원인을 추적해 온 프로젝트 모음입니다.
+<div align="center">
 
-이 저장소는 실제 구현과 검증 가능한 실험 근거만 골라 만든 포트폴리오 사본입니다. 원본 프로젝트의 실행 경로와 연구 artifact는 변경하지 않았습니다.
+![Reproducible V6](https://img.shields.io/badge/Reproducible_V6-618%2F820_%7C_75.37%25-2b6cb0)
+![V1 Parent](https://img.shields.io/badge/V1_Parent-600%2F820_%7C_73.17%25-64748b)
+![Scope](https://img.shields.io/badge/Scope-Retrospective_GT0-orange)
+![Audit](https://img.shields.io/badge/Attribution-Audited-2f855a)
 
-## 1. CCTV LPR System
+</div>
 
-실제 CCTV 입력에서 번호판 검출, ROI 전처리, OCR, 시간축 그룹화와 결과 기록까지 연결한 Python GPU 파이프라인입니다.
+## Reproducible V6 Snapshot
 
-- `gpu_pipeline.py`: 공통 GPU 처리 엔진과 비동기 OCR worker, event/temporal 처리, 계측을 구현합니다.
-- `gpu_pipeline2.py`: 위 클래스를 상속해 Real822용 PP-OCRv5 연결과 opt-in 연구 통합을 추가합니다.
-- `run_detection.py`: 명령행 실행 진입점입니다.
+**618 / 820 = 75.37%**
 
-두 pipeline 파일은 한 시스템의 기반 구현과 확장 계층입니다. 자세한 내용은 [01_CCTV_LPR_System](01_CCTV_LPR_System/README.md)을 참고하십시오.
+V1 parent: `600 / 820 = 73.17%`
 
-## 2. T2 Accuracy Research
+`65` switches · `W→C 25` · `C→W 7` · `W→W 33` · **Net +18**
 
-실제 CCTV 번호판 후보의 특징 생성, cross-fit selector, 후보 재평가와 leakage-free 평가를 비교한 별도 연구 트랙입니다. 이 코드는 production inference라고 주장하지 않습니다.
+> Retrospective GT0 Nested Outer-5 development benchmark. Frozen research replay; not blind, unseen, external, production, or competition performance.
 
-검증 bundle의 frozen 결과는 T2 `541/820 = 65.98%`, C3 `481/820 = 58.66%`입니다. A4 `583/820`은 후보 material ceiling이며 자동 Top-1 정확도가 아닙니다.
+The replay starts from frozen research artifacts and configuration. It reproduces the final decision/evaluation path; it does not claim retraining from raw CCTV data or full pixel-to-final inference.
 
-## 3. C# Image Processing
+## System Pipeline
 
-.NET Framework 4.7.2 WinForms로 작성한 두 영상처리 프로젝트입니다.
+```mermaid
+flowchart LR
+    V[Video input] --> D[Frame decode and detector]
+    D --> R[Plate ROI and GPU preprocessing]
+    R --> O[Asynchronous OCR queues]
+    O --> H[OCR history and temporal/event grouping]
+    H --> P[Optional PP-OCRv5 adapter]
+    P --> X[Result rows, logs, timing]
+```
 
-- `da`: 삼각형/사다리꼴 퍼지 소속함수, 동적 α-cut, 블록 분할 이진화
-- `ho_pi`: FAM 유사도, softmax 가중 복원, 퍼지 전처리, 마스크 및 잔차 결합
+Production-style source topology is preserved byte-for-byte:
+[`run_detection.py`](01_CCTV_LPR_System/run_detection.py) → [`gpu_pipeline2.GPUPipeline`](01_CCTV_LPR_System/gpu_pipeline2.py) → inherits [`gpu_pipeline.GPUPipeline`](01_CCTV_LPR_System/gpu_pipeline.py).
 
-PPT의 향후 아이디어와 실제 코드 구현을 구분한 감사 결과는 [PORTFOLIO_AUDIT.md](PORTFOLIO_AUDIT.md)에 기록했습니다.
+Measured snapshot note: OCR OFF `22.94 fps`; OCR ON `1.04 fps`, identifying OCR as the observed runtime bottleneck for that measurement, not a general performance guarantee.
 
-## Reproduction note
+## Reproducible V6 Research Lineage
 
-학습 weight, 원본 CCTV 데이터와 개인정보 가능성이 있는 영상은 포함하지 않았습니다. Python 파일은 원본 import 구조를 유지하므로 전체 저장소의 `pipeline/`, `ocr/`, `decision/` 모듈과 외부 model이 필요합니다. C# 프로젝트는 Windows의 .NET Framework 4.7.2 및 WinForms 개발 도구가 필요합니다.
+```mermaid
+flowchart LR
+    Q[Q1: Qwen3-VL + fold-local LoRA<br/>candidate strings]
+    A[A6P candidate source]
+    V[V1 candidate source]
+    Q --> R[Provenance registry<br/>exact dedup]
+    A --> R
+    V --> R
+    R --> T[Parent-protected Top-5]
+    P[V1 parent<br/>600 / 820] --> S[Frozen budget-constrained selector]
+    T --> S
+    S --> Z[V6 reproducible snapshot<br/>618 / 820 = 75.37%]
+```
+
+Qwen3-VL is a candidate generator/source, not the final scorer. The 75.37% value belongs to the complete frozen V6 decision lineage.
+
+## Portfolio Map
+
+- [Production-style CCTV LPR system](01_CCTV_LPR_System/)
+- [Historical T2 accuracy research](02_T2_Accuracy_Research/) — `541/820 = 65.98%`
+- [C# image-processing coursework](03_CSharp_ImageProcessing/)
+- [Reproducible V6 audit snapshot](04_V6_75p37_Latest_Audit/)
+- [Architecture](docs/ARCHITECTURE.md)
+- [Audit](PORTFOLIO_AUDIT.md)
+
+## Metric Lineage
+
+The historical T2 experiment remains separate from the later V6 lineage:
+
+```text
+Production-style CCTV pipeline
+├── Historical T2 research: 541/820 = 65.98%
+└── Later V6 research lineage
+    ├── V1 parent: 600/820 = 73.17%
+    └── Reproducible V6: 618/820 = 75.37%
+```
+
+<details>
+<summary>Historical frozen snapshots</summary>
+
+- 2026-10-08 Core-Light frozen snapshot: `622/820 = 75.85%`.
+- This is a separate historical `PARTIAL_REPRODUCTION` authority and is not the current reproducible portfolio headline.
+
+</details>
+
+## Engineering Focus
+
+- GPU preprocessing, asynchronous OCR, queues, backpressure, and temporal grouping
+- Provenance-aware candidate registries and parent-protected selection
+- Freeze-before-GT evaluation, exact-once joins, SHA receipts, and fail-closed checks
+- Explicit separation of production-style code, historical research, and reproducible audit evidence
+
+## Tech Stack
+
+Python, C#, PyTorch/CUDA, OpenCV, ONNX Runtime, Ultralytics, EasyOCR, PaddleOCR, NumPy, scikit-learn, LightGBM, Transformers, PEFT, and Accelerate. Dependencies and unresolved license/model-weight boundaries are recorded in [Third-Party Notices](THIRD_PARTY_NOTICES.md).
+
+## Reproduction & Claim Boundary
+
+The public audit contains summary evidence and no model weights, private datasets, CCTV frames, credentials, or raw GT. See [reproduction notes](04_V6_75p37_Latest_Audit/REPRODUCTION_NOTES.md), [claim boundary](04_V6_75p37_Latest_Audit/CLAIM_BOUNDARY.md), and [metric authority](04_V6_75p37_Latest_Audit/METRIC_AUTHORITY.json).
 
 ## References, Attribution & Licensing
 
-This portfolio includes project implementation, third-party integrations, and work informed by published techniques. The boundary between confirmed and unconfirmed sources is documented separately:
-
-- [Research References](REFERENCES.md)
-- [Third-Party Software Notices](THIRD_PARTY_NOTICES.md)
-- [Source Provenance](SOURCE_PROVENANCE.md)
-- [Asset Sources](ASSET_SOURCES.md)
-
-Third-party copyrights and licenses remain with their respective owners. This repository has no root license grant at present; see the notices and open review items before reusing its code.
+- [References](REFERENCES.md)
+- [Third-party notices](THIRD_PARTY_NOTICES.md)
+- [Source provenance](SOURCE_PROVENANCE.md)
+- [Asset sources](ASSET_SOURCES.md)
+- [Portfolio style sources](docs/PORTFOLIO_STYLE_SOURCES.md)
 

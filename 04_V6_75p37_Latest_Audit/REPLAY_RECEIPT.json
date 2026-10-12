@@ -1,0 +1,12 @@
+{
+  "schema": "PUBLIC_V6_618_REPLAY_RECEIPT_SUMMARY_V1",
+  "status": "PASS",
+  "rows": 820,
+  "pre_freeze_gt_reads": 0,
+  "post_freeze_exact_once_groups": 820,
+  "config_frozen": true,
+  "prediction_frozen": true,
+  "prediction_freeze_sha256": "E9502521DB1FFC315DB6DA9DB86FF9B54970379CF45B6A028F006EA0B433CC64",
+  "result_sha256": "317F1371624CE95696A5ABCBDBACB452A15AD2F81E57E1145C648C054613203D",
+  "checks": {"v1_600": true, "v6_618": true, "exact_once": true}
+}

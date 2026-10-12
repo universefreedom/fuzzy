@@ -15,6 +15,10 @@ This repository declares or imports the components below. Their copyrights remai
 | scikit-learn | [scikit-learn COPYING](https://github.com/scikit-learn/scikit-learn/blob/main/COPYING) | T2 selector scripts | BSD-3-Clause | No |
 | LightGBM | [lightgbm-org/LightGBM LICENSE](https://github.com/lightgbm-org/LightGBM/blob/main/LICENSE) | T2 ranking experiment | MIT | No |
 | FastPlateOCR / `fast-plate-ocr` | [ankandrew/fast-plate-ocr package metadata](https://github.com/ankandrew/fast-plate-ocr/blob/master/pyproject.toml) | Custom FastPlate-compatible ONNX adapter in `gpu_pipeline.py` | MIT for that upstream package | No package source; exact custom ONNX model origin `NEEDS_SOURCE_CONFIRMATION` |
+| Qwen3-VL | [QwenLM/Qwen3-VL](https://github.com/QwenLM/Qwen3-VL) | Candidate-string generation in the separately frozen V6 research lineage | Apache-2.0 source repository; model-weight terms must be checked on the exact model page | No source or weights bundled |
+| Transformers | [huggingface/transformers LICENSE](https://github.com/huggingface/transformers/blob/main/LICENSE) | Model loading in the private frozen candidate-generation lineage | Apache-2.0 | No |
+| PEFT | [huggingface/peft LICENSE](https://github.com/huggingface/peft/blob/main/LICENSE) | Fold-local LoRA integration in the private frozen lineage | Apache-2.0 | No |
+| Accelerate | [huggingface/accelerate LICENSE](https://github.com/huggingface/accelerate/blob/main/LICENSE) | Runtime support in the private frozen lineage | Apache-2.0 | No |
 
 The upstream packages are not vendored in this repository. Users must comply with the applicable upstream licenses. This statement does **not** establish that any separately obtained model weights can be redistributed; this snapshot contains no detector/OCR weights.
 
@@ -24,4 +28,5 @@ Upstream notices name the NumPy Developers; Microsoft Corporation for ONNX Runti
 
 - `LICENSE_REVIEW_REQUIRED`: Ultralytics' AGPL-3.0/Enterprise terms require a separate review of the actual use, detector weights, distribution and any combined work. A dependency declaration alone does not establish that source was copied here, nor does it settle the obligations for this project. No compatibility conclusion is made here.
 - `NEEDS_SOURCE_CONFIRMATION`: exact installed versions, detector/OCR model weight sources and licenses, and the custom FastPlate ONNX model lineage.
+- Qwen3-VL model weights are not bundled. Anyone reproducing candidate generation must inspect and comply with the license shown on the exact upstream model page used; the library license alone does not grant model-weight redistribution rights.
 - No root `LICENSE` or copied upstream license text was created by this audit. If a later source comparison finds copied or modified third-party code, retain the notices, license text and modification information required by that source before publishing.

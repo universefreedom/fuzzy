@@ -15,6 +15,10 @@ Scope: the tracked portfolio snapshot, not the full private research tree. “Pr
 
 The five included producer/evaluation scripts are a separate experimental snapshot, not the production OCR system. `build_c3_a4_selector_features.py` constructs frozen candidate features; `run_c3_a4_selector_crossfit_pre_gt.py` and `run_real822v3_c3_a4_crossfit_selector_v1.py` implement cross-fit selection; `run_real822_cross_group_confusion_transfer_v1.py` and `score_real822v3_c3_a4_selector_postfreeze.py` handle transfer/scoring. Their source imports are Python standard library plus NumPy, scikit-learn and LightGBM where used. No copied third-party source block or explicit upstream code attribution was identified by the repository text audit; that is not a definitive originality finding. `NEEDS_SOURCE_CONFIRMATION`: compare the original research tree and notebooks if a clean-room authorship claim is needed.
 
+## 04_V6_75p37_Latest_Audit
+
+This directory is an `AUDIT_SUMMARY_ONLY` publication derived from a certified fresh standalone replay. It records counts, claim boundaries, and cryptographic result identifiers; it does not publish the private candidate registry, predictions, GT, model weights, datasets, or absolute execution paths. Qwen3-VL with fold-local LoRA is one candidate-string source, not the final scorer. The reproducible authority is the frozen V6 decision/evaluation lineage at `618/820 = 75.37%`.
+
 ## 03_CSharp_ImageProcessing
 
 - `da/da/Form1.cs`: WinForms coursework implementation of fuzzy membership, alpha-cut and image binarization. Coursework implementation based on course materials. Original bibliographic source not yet confirmed.
