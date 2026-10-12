@@ -21,8 +21,14 @@ This directory is an `AUDIT_SUMMARY_ONLY` publication derived from a certified f
 
 ## 03_CSharp_ImageProcessing
 
-- `da/da/Form1.cs`: WinForms coursework implementation of fuzzy membership, alpha-cut and image binarization. Coursework implementation based on course materials. Original bibliographic source not yet confirmed.
-- `ho_pi/ho_pi/Form1.cs`: WinForms coursework implementation of FAM-like similarity, softmax weighting and reconstruction. Coursework implementation based on course materials. Original bibliographic source not yet confirmed.
+- `da/da/Form1.cs`: WinForms coursework implementation of fuzzy membership, alpha-cut and image binarization. The reviewed course bibliography names the 2016 Woo–Kim dynamic alpha-cut paper recorded in `REFERENCES.md`; this is a concept-reference boundary, not proof that every code line derives from that paper.
+- `ho_pi/ho_pi/Form1.cs`: WinForms coursework implementation of FAM-like similarity, softmax weighting and reconstruction. The reviewed course bibliography includes the 2020 Silla University IFAM conference paper recorded in `REFERENCES.md`; exact line-level ancestry remains `NEEDS_SOURCE_CONFIRMATION`.
 - `*.Designer.cs`, `Properties/*`, `*.resx`: Visual Studio / WinForms-generated project scaffolding and resources; not claimed as original algorithmic code. No embedded external photograph was identified in the tracked resource templates.
+
+## Course material and public-asset boundary
+
+The reviewed PPT extracts are private/course evidence, not redistributable public assets. They are not tracked in this repository. Their bibliographies may support a formal citation after authority verification, but their slide design, screenshots, paper figures, and embedded example images remain `PUBLICATION_PERMISSION_UNCONFIRMED` and outside this GitHub audit.
+
+No raw CCTV, license-plate crop, face image, location-bearing frame, ground-truth file, course PPT, or paper PDF is tracked in the public Git snapshot or appears under a media/document path in the reviewed Git history. This finding is limited to the audited repository and does not reclassify private research archives.
 
 No evidence in this snapshot is sufficient to name a copied/adapted external source file. Do not turn “not found” into “none exists”: inspect course materials, old project history and the original full repository before assigning an unqualified original-work or license claim.

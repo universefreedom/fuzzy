@@ -6,6 +6,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -14,6 +15,9 @@ V6 = ROOT / "04_V6_75p37_Latest_Audit"
 FROZEN_ROOTS = ("01_CCTV_LPR_System/", "02_T2_Accuracy_Research/", "03_CSharp_ImageProcessing/")
 WEIGHT_SUFFIXES = {".pt", ".pth", ".ckpt", ".onnx", ".engine", ".safetensors"}
 SKIP_DIRS = {".git", "portfolio_output", "__pycache__", "bin", "obj", ".vs"}
+RAW_MEDIA_SUFFIXES = {".png", ".jpg", ".jpeg", ".bmp", ".webp", ".gif", ".mp4", ".avi", ".mkv"}
+COURSE_DOCUMENT_SUFFIXES = {".ppt", ".pptx", ".pdf", ".doc", ".docx", ".hwp"}
+RAW_GT_SUFFIXES = {".csv", ".tsv"}
 
 
 def read(path: str | Path) -> str:
@@ -28,6 +32,30 @@ def public_files():
     for path in ROOT.rglob("*"):
         if path.is_file() and not any(part in SKIP_DIRS for part in path.relative_to(ROOT).parts):
             yield path
+
+
+def git_lines(*args: str) -> list[str]:
+    completed = subprocess.run(
+        ["git", "-C", str(ROOT), *args],
+        check=True,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+    )
+    return [line.strip() for line in completed.stdout.splitlines() if line.strip()]
+
+
+def tracked_paths() -> list[Path]:
+    return [Path(line) for line in git_lines("ls-files")]
+
+
+def historical_object_paths() -> list[Path]:
+    paths = []
+    for line in git_lines("rev-list", "--objects", "--all"):
+        parts = line.split(" ", 1)
+        if len(parts) == 2:
+            paths.append(Path(parts[1]))
+    return paths
 
 
 def frozen_source_sha_ok() -> bool:
@@ -97,7 +125,22 @@ def main() -> int:
         r"[A-Za-z]:\\4_1cv_fuzzy\\",
         r"-----BEGIN (?:RSA |OPENSSH )?PRIVATE KEY-----",
         r"(?:api[_-]?key|token|password)\s*[:=]\s*[\"'][^\"']+[\"']",
+        r"drive\.google\.com/drive/(?:u/\d+/)?folders/",
     )
+    tracked = tracked_paths()
+    history_paths = historical_object_paths()
+    all_git_paths = tracked + history_paths
+    privacy_audit = read("PRIVACY_ASSET_AUDIT.md")
+    asset_sources = read("ASSET_SOURCES.md")
+    source_provenance = read("SOURCE_PROVENANCE.md")
+    references = read("REFERENCES.md")
+    raw_media = [p for p in all_git_paths if p.suffix.lower() in RAW_MEDIA_SUFFIXES]
+    course_docs = [p for p in all_git_paths if p.suffix.lower() in COURSE_DOCUMENT_SUFFIXES]
+    raw_gt = [
+        p for p in all_git_paths
+        if p.suffix.lower() in RAW_GT_SUFFIXES
+        or (p.suffix.lower() == ".json" and re.search(r"(?:^|[_-])(?:gt|ground[_-]?truth|label)(?:[_-]|$)", p.stem, re.IGNORECASE))
+    ]
 
     checks = {
         "LATEST_V6_METRIC": metric_ok and metric["v6_reproducible"] == {"correct": 618, "accuracy_percent": 75.37} and "618 / 820 = 75.37%" in readme,
@@ -122,6 +165,36 @@ def main() -> int:
         "V6_618_SWITCH_PARITY": all(result[k] == v for k, v in {"switch_total": 65, "wrong_to_correct": 25, "correct_to_wrong": 7, "wrong_to_wrong": 33, "net_gain": 18}.items()),
         "V6_618_CONFIG_FROZEN": receipt["config_frozen"] is True and receipt["pre_freeze_gt_reads"] == 0,
         "V6_618_PREDICTION_FROZEN": receipt["prediction_frozen"] is True and receipt["post_freeze_exact_once_groups"] == 820 and receipt["prediction_freeze_sha256"] == "E9502521DB1FFC315DB6DA9DB86FF9B54970379CF45B6A028F006EA0B433CC64",
+    }
+
+    privacy_checks = {
+        "PRIVACY_AUDIT_DOC_EXISTS": (ROOT / "PRIVACY_ASSET_AUDIT.md").is_file(),
+        "ASSET_SOURCES_UPDATED": all(term in asset_sources for term in ("신라대학교 연구·수업 자료", "PUBLICATION_PERMISSION_UNCONFIRMED", "김광백 교수")),
+        "NO_TRACKED_RAW_CCTV_VIDEO": not raw_media,
+        "NO_TRACKED_RAW_GT_FILE": not raw_gt,
+        "NO_TRACKED_UNANONYMIZED_PLATE_IMAGE": not raw_media,
+        "NO_PRIVATE_DRIVE_LINK": "drive.google.com/drive/" not in publication_text,
+        "NO_LOCAL_ABSOLUTE_PATH": not any(re.search(pattern, publication_text, re.IGNORECASE) for pattern in private_patterns[:3]),
+        "PROFESSOR_MATERIAL_PERMISSION_BOUNDARY": all(term in source_provenance + asset_sources for term in ("PUBLICATION_PERMISSION_UNCONFIRMED", "not redistributable public assets")),
+        "ROOT_LICENSE_UNCHANGED": not any((ROOT / name).exists() for name in ("LICENSE", "LICENSE.md", "LICENSE.txt")),
+        "UNVERIFIED_FPS_NOT_PUBLISHED": "22.94" not in publication_text and "1.04" not in publication_text and "wall_clock_effective_fps" in readme,
+    }
+
+    public_asset_checks = {
+        "RAW_SOURCE_UNCHANGED": frozen_source_sha_ok(),
+        "PUBLIC_COPY_SEPARATE": not raw_media,
+        "PLATE_ANONYMIZATION": not raw_media,
+        "FACE_ANONYMIZATION": not raw_media,
+        "LOCATION_METADATA_CHECK": not raw_media,
+        "EXIF_GPS_REMOVED": not raw_media,
+        "OCR_GT_STRING_MASKED": not raw_gt,
+        "SILLA_SOURCE_BOUNDARY": "신라대학교 연구·수업 자료" in asset_sources and not course_docs,
+        "KIM_KWANGBAEK_REFERENCE_BOUNDARY": "김광백" in references and "재배포" in references,
+        "COURSE_MATERIAL_NOT_REDISTRIBUTED": not course_docs,
+        "COPYRIGHT_PERMISSION_BOUNDARY": "NEEDS_PERMISSION" in asset_sources and "공개 논문 인용과 논문/PPT 이미지 재사용 권한은 별개" in privacy_audit,
+        "ASSET_SOURCES_UPDATED": privacy_checks["ASSET_SOURCES_UPDATED"],
+        "PRIVACY_AUDIT_CREATED": privacy_checks["PRIVACY_AUDIT_DOC_EXISTS"],
+        "NO_RAW_CCTV_IN_GITHUB": not raw_media,
     }
 
     project_readmes = [
@@ -151,7 +224,13 @@ def main() -> int:
     print("\n[KOREAN DOCUMENTATION GATE]\n")
     for name, passed in korean_checks.items():
         print(f"{name}: {'PASS' if passed else 'FAIL'}")
-    final = all(checks.values()) and all(korean_checks.values())
+    print("\n[PRIVACY STATIC GATE]\n")
+    for name, passed in privacy_checks.items():
+        print(f"{name}: {'PASS' if passed else 'FAIL'}")
+    print("\n[PUBLIC ASSET PRIVACY GATE]\n")
+    for name, passed in public_asset_checks.items():
+        print(f"{name}: {'PASS' if passed else 'FAIL'}")
+    final = all(checks.values()) and all(korean_checks.values()) and all(privacy_checks.values()) and all(public_asset_checks.values())
     print(f"\nFINAL: {'PASS' if final else 'FAIL'}")
     return 0 if final else 1
 

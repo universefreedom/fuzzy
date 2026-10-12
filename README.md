@@ -46,7 +46,7 @@ flowchart LR
 
 ### 실행 성능 분석 사례
 
-특정 실행 계측에서 OCR OFF `22.94 fps`, OCR ON `1.04 fps`가 측정되었습니다. 처리 단계를 분리해 확인한 결과 주요 병목은 detector 자체보다 OCR-trigger 이후의 CPU crop / rectification 및 저배치 queue 경로에 있었습니다. 이는 특정 계측 사례이며 현재 시스템 전체의 일반적인 FPS를 뜻하지 않습니다.
+비동기 OCR queue, crop / rectification, CPU-GPU 처리 구간을 분리해 병목을 계측하도록 구성했습니다. 현재 공개 코드와 보존된 공개 로그만으로는 과거 OCR OFF / ON FPS 수치를 독립 검증할 수 없으므로 확정 성능값을 제시하지 않습니다. 재측정 시에는 동일 영상·동일 환경에서 `wall_clock_effective_fps`를 우선 기준으로 삼고, `1000 / total_frame_ms`는 비동기 queue를 포함한 전체 wall-clock 처리량과 구분해야 합니다. 코드의 `self.fps`는 입력 영상 시간축 계산값이며 처리속도 측정값이 아닙니다.
 
 ## 최신 V6 연구 구조
 
@@ -125,6 +125,7 @@ Python, C#, PyTorch/CUDA, OpenCV, ONNX Runtime, Ultralytics, EasyOCR, PaddleOCR,
 - [외부 소프트웨어 및 라이선스](THIRD_PARTY_NOTICES.md)
 - [소스 출처 및 구현 경계](SOURCE_PROVENANCE.md)
 - [이미지 및 자료 출처](ASSET_SOURCES.md)
+- [공개 자산 개인정보·재배포 감사](PRIVACY_ASSET_AUDIT.md)
 - [포트폴리오 표현 요소 출처](docs/PORTFOLIO_STYLE_SOURCES.md)
 
 확인되지 않은 출처는 임의로 추정하지 않고 `NEEDS_SOURCE_CONFIRMATION` 상태로 유지합니다.

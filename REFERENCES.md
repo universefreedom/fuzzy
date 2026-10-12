@@ -26,7 +26,7 @@ This portfolio contains coursework, experimental research, and engineering integ
 
 | ID | Technique visible in this snapshot | Usage type | Project location | Bibliographic status |
 |---|---|---|---|---|
-| R4 | Triangular/trapezoidal fuzzy membership and dynamic alpha-cut | Coursework implementation | `03_CSharp_ImageProcessing/da/da/Form1.cs` | Coursework implementation based on course materials. Original bibliographic source not yet confirmed. |
-| R5 | FAM-style similarity, softmax weighting and residual reconstruction | Coursework implementation | `03_CSharp_ImageProcessing/ho_pi/ho_pi/Form1.cs` | Coursework implementation based on course materials. Original bibliographic source not yet confirmed. |
+| R4 | Triangular/trapezoidal fuzzy membership and dynamic alpha-cut | Coursework implementation / concept reference | `03_CSharp_ImageProcessing/da/da/Form1.cs` | 우현수·김광백, 「사다리꼴 형태의 소속 함수와 동적 α_cut을 이용한 개선된 퍼지 이진화」, 한국정보통신학회논문지 20(10), 1852–1859, 2016. KCI 권호 및 학술 데이터베이스에서 제목·저자·권호·쪽을 교차확인했습니다. 논문 인용은 강의 PPT나 그림의 재배포 허가를 의미하지 않습니다. |
+| R5 | FAM/IFAM-style image restoration | Coursework implementation / concept reference | `03_CSharp_ImageProcessing/ho_pi/ho_pi/Form1.cs` | 이효진·고예림·강민지·권희영·김광백, 「IFAM을 이용한 훼손된 그레이 영상 복원」, 한국정보통신학회 종합학술대회 논문집, 2020. 학회 공개 PDF와 목차에서 제목·저자·신라대학교 소속을 확인했습니다. 현재 코드의 세부 구현 계보 전체를 이 논문과 동일하다고 단정하지 않습니다. |
 
-No paper title, authors, year, venue or DOI has been assigned without a matching source in the reviewed snapshot. The original slides, reports and course bibliography must be checked before converting any row into a formal citation.
+위 두 문헌은 실제 수업 PPT의 인용 목록과 공개 학술 authority가 일치한 범위에서만 연결했습니다. 그 밖의 논문·강의자료·이미지 출처는 `NEEDS_SOURCE_CONFIRMATION`이며, 인용 사실을 PPT 원본·논문 그림·예제 이미지의 재배포 허가로 해석하지 않습니다.
